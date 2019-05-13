@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="../css/regiones.css">
+</head>
+<body onload="displayResult()">
+	<nav>
+         <a class="activebar" href="../index.html"><img src="../imagenes/home.png"></a>
+         <a href="../html/sobrenosotros.html"  class="top"><span>Sobre nosotros</span></a>
+         <div class="dropdown">
+            <button class="dropbtn"><span>Destinos</span></button>
+            <div class="dropdown-content">
+               <a href="destinos.html#tokio">Tokio</a>
+               <a href="destinos.html#kioto">Kioto</a>
+               <a href="destinos.html#osaka">Osaka</a>
+               <a href="destinos.html#nara">Nara</a>
+            </div>
+         </div>
+         <div class="dropdown">
+            <button class="dropbtn"><span>Regiones</span></button>
+            <div class="dropdown-content">
+               <a href="../html/hokkaido.html">Hokkaido</a>
+               <a href="../html/kanto.html">Kanto</a>
+               <a href="../html/kansai.html">Kansai</a>
+               <a href="../html/kyushu.html">Kyushu</a>  
+            </div>
+         </div>
+         <a href="contacto.html"  class="top"><span>Contacto</span></a>
+         <div class="search-container">
+            <form action="https://google.com/search" method="get">
+               <input type="text" name="q" placeholder="Buscar.." name="search" />
+               <button type="submit"><i>Buscar</i></button>
+            </form>
+         </div>
+      </nav>
+      <section>
+         <div id="principal">
+            <img src="../imagenes/kansai_principal.jpg">
+            <h1 id="aboveimg">KANSAI</h1>
+         </div>
+         <br><br>
+         <div id="intro">
+            <h1>Kansai</h1>
+            <p>Aquí puedes encontrar toda la información sobre la región de Kansai (関西地方), a menudo llamada también región de Kinki (近畿地方).</p>
+
+            <p>La región de Kansai es conocida porque aquí se encuentran las ciudades de Kioto, Osaka o Nara, por ejemplo, entre muchas otras.</p>
+            <br><br><br>
+         </div>
+         
+         <div id="kansai">
+            
+         </div>
+        
+         <div id="posicion">
+            <h1>¿Dónde quieres ir?</h1>
+            <p>Busca tu destino favorito en este mapa interactivo de las regiones</p>
+         </div>
+         
+
+		<div id="mapa">
+			<img src="../imagenes/mapa.jpg" usemap="#map">
+		</div>
+
+      <map name="map">
+		    <area target="" alt="hokkaido" title="hokkaido" href="../html/hokkaido.html" coords="506,13,543,28,531,61,528,74,529,94,498,85,482,113,463,131,458,158,485,164,518,147,588,143,631,116,676,88,653,55,544,5" shape="poly">
+		    <area target="" alt="kanto" title="kanto" href="../html/kanto.html" coords="431,333,410,350,419,371,434,388,424,394,429,405,447,402,455,387,465,387,455,398,455,413,471,407,493,384,484,363,492,342,462,329" shape="poly">
+		    <area target="" alt="kansai" title="kansai" href="kansai.html" coords="266,371,270,383,258,393,261,404,271,424,285,440,307,466,326,437,348,430,342,414,342,397,331,378,314,387,295,370" shape="poly">
+		    <area target="" alt="kyushu" title="kyushu" href="../html/kyushu.html" coords="87,387,46,457,75,504,59,569,64,580,98,561,118,561,141,521,154,484,171,467,166,436" shape="poly">
+		</map>
+      </section>
+    <footer> 
+          <div class="footerg">
+            <h5>DESTINOS</h5>
+            <ul>
+               <li><a href="destinos.html#tokio">Tokio</a></li>
+               <li><a href="destinos.html#kioto">Kioto</a></li>
+               <li><a href="destinos.html#osaka">Osaka</a></li>
+               <li><a href="destinos.html#nara">Nara</a></li>
+            </ul>
+         </div>
+         <div class="footerg">
+            <h5 id="position">ENLACES DE INTERÉS</h5>
+            <ul>
+               <li> <a href="html/contacto.html"><span>Contacto</span></a></li>
+               <li><a href=""><span>Sobre nosotros</span></a></li>
+            </ul>
+         </div>
+         <div class="footerg">
+            <h5>SOCIAL MEDIA</h5>
+            <ul>
+               <li><a class="social" href="https://twitter.com/?lang=es"><i><img src="../imagenes/twitter.png"></i></a></li>
+               <li><a class="social" href="https://es-es.facebook.com/"><i><img src="../imagenes/facebook.png"></i></a></li>
+            </ul>
+            </ul>
+         </div>
+      </footer>
+      <script>
+         /*XSL*/
+    function loadXMLDoc(filename) {
+      if (window.ActiveXObject) {
+        xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+      } else {
+        xhttp = new XMLHttpRequest();
+      }
+      xhttp.open("GET", filename, false);
+      try {
+        xhttp.responseType = "msxml-document"
+      } catch (err) {} // Helping IE11
+      xhttp.send("");
+      return xhttp.responseXML;
+    }
+
+    function displayResult() {
+      xml = loadXMLDoc("../xml/regiones.xml");
+      xsl = loadXMLDoc("../xml/kansai.xsl");
+      // code for IE
+      if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+        ex = xml.transformNode(xsl);
+        document.getElementById("kansai").innerHTML = ex;
+      }
+      // code for Chrome, Firefox, Opera, etc.
+      else if (document.implementation && document.implementation.createDocument) {
+        xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        resultDocument = xsltProcessor.transformToFragment(xml, document);
+        document.getElementById("kansai").appendChild(resultDocument);
+      }
+    }
+      </script>
+</body>
+</html>

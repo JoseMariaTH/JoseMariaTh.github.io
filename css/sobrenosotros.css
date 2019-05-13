@@ -1,0 +1,26 @@
+section{
+	display: inline-flex;
+	width: 100%;
+}
+article{
+	width: 550px;
+	height: 600px;
+	margin-left: 5%;
+}
+h1{
+	font-size: 40px;
+}
+iframe{
+	width: 600px;
+	height: 450px;
+	padding-left: 10%;
+	padding-top: 5%;	
+	border: none;
+	float: right;
+}
+h3{
+	padding-top: 7%;
+}
+nav{
+	border-bottom-style: solid;
+}

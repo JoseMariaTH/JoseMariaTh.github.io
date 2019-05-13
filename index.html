@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Proyecto Marcas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body onload="displayResult();intervalo()">
+	<nav>
+         <a class="activebar" href="index.html"><img src="imagenes/home.png"></a>
+         <a href="html/sobrenosotros.html" class="top"><span class="top">Sobre nosotros</span></a>
+         <div class="dropdown">
+            <button class="dropbtn"><span>Destinos</span></button>
+            <div class="dropdown-content">
+               <a href="html/destinos.html#tokio">Tokio</a>
+               <a href="html/destinos.html#kioto">Kioto</a>
+               <a href="html/destinos.html#osaka">Osaka</a>
+               <a href="html/destinos.html#nara">Nara</a>
+            </div>
+         </div>
+         <div class="dropdown">
+            <button class="dropbtn"><span>Regiones</span></button>
+            <div class="dropdown-content">
+               <a href="html/hokkaido.html">Hokkaido</a>
+               <a href="html/kanto.html">Kanto</a>
+               <a href="html/kansai.html">Kansai</a>
+               <a href="html/kyushu.html">Kyushu</a>
+            </div>
+         </div>
+         <a href="html/contacto.html" class="top"><span class="top">Contacto</span></a>
+         <div class="search-container">
+            <form action="https://google.com/search" method="get">
+               <input type="text" name="q" placeholder="Buscar.." name="search" />
+               <button type="submit"><i>Buscar</i></button>
+            </form>
+         </div>
+      </nav>
+      <section>
+
+
+             <div id="slider">
+             	<img src="" id="imagen">
+             	<h1 id="aboveimg">DESCUBRE JAPÓN</h1>
+             </div> 
+              <article>
+                <div id="hola"></div>
+                <table>
+                  <tr>
+                    <th>Tipo</th>
+                    <th colspan="2">Preferente</th>
+                    <th colspan="2">Turista</th>
+                  </tr>
+                  <tr>
+                    <td>Duración</td>
+                    <td>Adultos</td>
+                    <td>Niños</td>
+                    <td>Adultos</td>
+                    <td>Niños</td>
+                  </tr>
+                  <tr>
+                    <td>7 días</td>
+                    <td>44.000¥(356,163 EUR)</td>
+                    <td>22.000¥(178,081 EUR)</td>
+                    <td>33.000¥(267,122 EUR)</td>
+                    <td>16.500¥(133,561 EUR)</td>
+                  </tr>
+                  <tr>
+                    <td>14 días</td>
+                    <td>71.000¥(574,717 EUR)</td>
+                    <td>35.500¥(287,359 EUR)</td>
+                    <td>52.000¥(420,920 EUR)</td>
+                    <td>26.000¥(210,460 EUR)</td>
+                  </tr>
+                  <tr>
+                    <td>21 días</td>
+                    <td>90.000¥(728,515 EUR)</td>
+                    <td>45.000¥(364,257 EUR)</td>
+                    <td>65.000¥(526,206 EUR)</td>
+                    <td>32.500¥(263,103 EUR)</td>
+                  </tr>
+                </table>
+              </article>
+
+	   </section> 
+
+      <footer> 
+      	 <div class="footerg">
+            <h5>DESTINOS</h5>
+            <ul>
+               <li><a href="html/destinos.html#tokio">Tokio</a></li>
+               <li><a href="html/destinos.html#kioto">Kioto</a></li>
+               <li><a href="html/destinos.html#osaka">Osaka</a></li>
+               <li><a href="html/destinos.html#nara">Nara</a></li>
+            </ul>
+         </div>
+         <div class="footerg">
+            <h5 id="position">ENLACES DE INTERÉS</h5>
+            <ul>
+               <li> <a href="html/contacto.html"><span>Contacto</span></a></li>
+               <li><a href=""><span>Sobre nosotros</span></a></li>
+            </ul>
+         </div>
+         <div class="footerg">
+            <h5>SOCIAL MEDIA</h5>
+            <ul>
+               <li><a class="social" href="https://twitter.com/?lang=es"><i><img src="imagenes/twitter.png"></i></a></li>
+               <li><a class="social" href="https://es-es.facebook.com/"><i><img src="imagenes/facebook.png"></i></a></li>
+            </ul>
+         </div>
+      </footer>
+    
+      <script>
+   
+    /*XSL*/
+    function loadXMLDoc(filename) {
+      if (window.ActiveXObject) {
+        xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+      } else {
+        xhttp = new XMLHttpRequest();
+      }
+      xhttp.open("GET", filename, false);
+      try {
+        xhttp.responseType = "msxml-document"
+      } catch (err) {} // Helping IE11
+      xhttp.send("");
+      return xhttp.responseXML;
+    }
+
+    function displayResult() {
+      xml = loadXMLDoc("xml/regiones.xml");
+      xsl = loadXMLDoc("xml/jrpass.xsl");
+      // code for IE
+      if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+        ex = xml.transformNode(xsl);
+        document.getElementById("hola").innerHTML = ex;
+      }
+      // code for Chrome, Firefox, Opera, etc.
+      else if (document.implementation && document.implementation.createDocument) {
+        xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        resultDocument = xsltProcessor.transformToFragment(xml, document);
+        document.getElementById("hola").appendChild(resultDocument);
+      }
+    }
+
+    var imagenes=new Array(
+        ['./imagenes/slider1.jpg'],
+        ['./imagenes/slider2.jpg'],
+        ['./imagenes/slider3.jpg'],
+        ['./imagenes/slider4.jpg']
+    );
+ 
+   
+    function rotarImagenes(){
+       
+        var index=Math.floor((Math.random()*imagenes.length));
+ 
+        document.getElementById("imagen").src=imagenes[index][0];
+
+    }
+ 
+    function intervalo(){
+        
+        rotarImagenes();
+
+        setInterval(rotarImagenes,5000);
+    }
+  </script>
+    
+</script>
+</body>
+</html>

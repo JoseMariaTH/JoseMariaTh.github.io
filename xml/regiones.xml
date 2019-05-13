@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<regiones xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="regiones.xsd">
+    <articulo>
+        <tipo>tipo_hokkaido</tipo>
+        <titulo>Viajar a Hokkaido: Hakodate Asaichi o mercado matutino de Hakodate</titulo>
+        <descripcion>El mercado matutino de Hakodate o Hakodate Asaichi (函館朝市) es un mercado situado al lado de la estación central</descripcion>
+        <foto src="../imagenes/hokkaido.jpg"></foto>
+      </articulo>
+      
+      <articulo>
+        <tipo>tipo_hokkaido2</tipo>
+        <titulo>Viajar a Hokkaido: Jozankei Onsen, baños termales a las afueras de Sapporo.</titulo>
+        <descripcion>Jozankei Onsen (定山渓温泉) es un pueblo balneario situado a las afueras de Sapporo. Gracias a su localización y a la...</descripcion>
+        <foto src="../imagenes/hokkaido2.jpg"></foto>
+    </articulo>
+    
+   <articulo>
+       <tipo>tipo_kanto</tipo>
+        <titulo>Itinerarios por Tokio: Los mejores lugares para ver el sakura en Tokio, ¡a disfrutar del hanami!</titulo>
+        <descripcion>Uno de los mayores atractivos de viajar a Japón en primavera es poder disfrutar de las efímeras flores de cerezo...</descripcion>
+        <foto src="../imagenes/kanto.jpg"></foto>
+      </articulo>
+      <articulo>
+        <tipo>tipo_kanto2</tipo>
+        <titulo>Viajar a Tokio: El callejón Omoide Yokocho de Shinjuku</titulo>
+        <descripcion>Con una de las estaciones de más tránsito de todo el país, Shinjuku es un barrio que no duerme, lleno...</descripcion>
+        <foto src="../imagenes/kanto2.jpg"></foto>
+    </articulo>
+
+    <articulo>
+        <tipo>tipo_kansai</tipo>
+        <titulo>Viajar a Kioto: El templo Sanjusangendo y sus mil y una estatuas de Kannon</titulo>
+        <descripcion>Al este de la estación de Kioto encontramos el templo Rengeo-in, aunque este nombre tal vez no nos diga mucho....</descripcion>
+        <foto src="../imagenes/kansai.jpg"></foto>
+      </articulo>
+      <articulo>
+        <tipo>tipo_kansai2</tipo>
+        <titulo>Los mejores sitios para disfrutar de los cerezos en flor o hanami</titulo>
+        <descripcion>Cada año sois muchos los que viajáis a Japón para disfrutar de la belleza de los cerezos en flor (hanami)...</descripcion>
+        <foto src="../imagenes/kansai2.jpg"></foto>
+    </articulo>
+    
+    <articulo>
+        <tipo>tipo_kyushu</tipo>
+        <titulo>Viajar a Kyushu: El sitio del martirio de los 26 santos de Japón en Nagasaki</titulo>
+        <descripcion>El sitio del martirio de los 26 santos de Japón (二十六聖人の殉教の地) es un lugar clave en la ciudad de Nagasaki...</descripcion>
+        <foto src="../imagenes/kyushu.jpg"></foto>
+      </articulo>
+      <articulo>
+        <tipo>tipo_kyushu2</tipo>
+        <titulo>Viajar a Kyushu: La Iglesia de Oura y el Triángulo de la oración de Nagasaki</titulo>
+        <descripcion>La Basílica de los Veintiséis Santos Mártires de Japón (日本二十六聖殉教者堂), más conocida como Iglesia de Oura (大浦天主堂), es una iglesia católica...</descripcion>
+        <foto src="../imagenes/kyushu2.jpg"></foto>
+    </articulo>
+    
+    <articulo>
+        <tipo>tipo_jr</tipo>
+        <titulo>Japan Rail Pass</titulo>
+        <descripcion>Es una de las herramientas mas útiles para los turistas. Es un pase que nos permite hacer viajes ilimitados en los trenes del grupo JR, además de algunos autobuses y un ferry
+        durante su periodo de validez. 
+        En estas 6 compañias : JR Kyūshū, JR Shikoku, JR West, JR Central, JR East y JR Hokkaidō, es donde podremos utilizar el JR Pass.</descripcion>
+        <foto></foto>
+    </articulo>
+</regiones>
